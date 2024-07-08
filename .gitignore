@@ -1,0 +1,9 @@
+/.vscode
+/backend/*.editorconfig
+/backend/storage/logs
+/backend/public/assets/images
+/frontend/dist
+/backend/public/public
+/shopclone6
+shopclone6.sql
+shopclone6.zip

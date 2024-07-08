@@ -1,0 +1,4 @@
+*
+!flags/
+!flags/*
+!.gitignore

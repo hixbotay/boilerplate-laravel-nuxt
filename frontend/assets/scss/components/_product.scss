@@ -1,0 +1,23 @@
+.product{
+  .product-image{
+    width: 100px;
+  }
+}
+.product-detail{
+  .product-quantity{
+    max-width: 100px
+  }
+}
+
+.product-item-list{
+  .product-image{
+    height: 150px;
+    width: 100%;
+    img{
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}

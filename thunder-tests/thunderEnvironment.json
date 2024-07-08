@@ -1,0 +1,70 @@
+[
+  {
+    "_id": "0bd8228c-2398-463d-bef3-4a0d4601d458",
+    "name": "local",
+    "default": false,
+    "sortNum": 5000,
+    "created": "2023-04-08T10:36:57.781Z",
+    "modified": "2023-04-08T10:36:57.781Z",
+    "data": [
+      {
+        "name": "host",
+        "value": "localhost:8003"
+      },
+      {
+        "name": "username",
+        "value": ""
+      },
+      {
+        "name": "password",
+        "value": ""
+      },
+      {
+        "name": "user_id",
+        "value": "1"
+      },
+      {
+        "name": "token",
+        "value": ""
+      },
+      {
+        "name": "email",
+        "value": "admin@test.com"
+      }
+    ]
+  },
+  {
+    "_id": "145bd7c4-7a18-4323-b6ad-528b0184a40f",
+    "name": "live",
+    "default": true,
+    "sortNum": 15000,
+    "created": "2023-04-08T10:38:27.480Z",
+    "modified": "2023-04-08T10:38:27.480Z",
+    "data": [
+      {
+        "name": "host",
+        "value": "https://api.tainguyenfb.vn"
+      },
+      {
+        "name": "username",
+        "value": ""
+      },
+      {
+        "name": "password",
+        "value": ""
+      },
+      {
+        "name": "token",
+        "value": ""
+      },
+      {
+        "name": "email",
+        "value": "admin@test.com"
+      },
+      {
+        "name": "user_id",
+        "value": ""
+      }
+    ]
+  }
+]

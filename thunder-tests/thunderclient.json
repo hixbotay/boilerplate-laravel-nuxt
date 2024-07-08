@@ -1,0 +1,2150 @@
+[
+  {
+    "_id": "17026ac9-7a7f-402b-9a16-3799175b6da3",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Register",
+    "url": "{{host}}/register",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-08T10:36:45.768Z",
+    "modified": "2023-04-09T18:05:19.078Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\" : \"admin@test.com\",\n    \"password\": \"123456789\",\n    \"full_name\": \"Test\",\n    \"mobile\": \"0355993202\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access_token",
+        "action": "setto",
+        "value": "{{token}}"
+      }
+    ]
+  },
+  {
+    "_id": "2dad235b-3f85-4712-80a1-2e8c4fee1e5d",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Login Admin",
+    "url": "{{host}}/login",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-04-08T10:43:31.376Z",
+    "modified": "2023-04-09T07:09:00.709Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"admin@test.com\",\n  \"password\":\"123456789\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access_token",
+        "action": "setto",
+        "value": "token"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.user.id",
+        "action": "setto",
+        "value": "user_id"
+      }
+    ]
+  },
+  {
+    "_id": "3d8ecb4e-146c-4a56-aa1b-534a0bc55287",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "List product",
+    "url": "{{host}}/admin/products",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-08T15:51:49.676Z",
+    "modified": "2023-04-21T12:13:28.177Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "a7c91244-d2f2-4952-aed8-e5a3e075786b",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Get curent user",
+    "url": "{{host}}/auth/",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-08T15:56:01.668Z",
+    "modified": "2023-04-09T17:06:30.499Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access_token",
+        "action": "setto",
+        "value": "{{token}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.user.id",
+        "action": "setto",
+        "value": "{{user_id}}"
+      }
+    ]
+  },
+  {
+    "_id": "afd39286-f620-418a-83ed-bc9eeea7b8ea",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "New Cat",
+    "url": "{{host}}/admin/products/category",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-08T17:20:19.642Z",
+    "modified": "2023-04-21T12:22:15.113Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Cat 8\",\n  \"user_id\": \"{{user_id}}\",\n  \"description\":\"test 8\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "7d1a1177-7114-4303-8f44-20c5a97a1140",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "List Cat",
+    "url": "{{host}}/admin/products/category",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-09T14:23:49.344Z",
+    "modified": "2023-04-21T12:22:36.103Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "5f61a9c4-6bb0-4821-8360-fb93cc5372f0",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Put Cat",
+    "url": "{{host}}/admin/products/category/2",
+    "method": "PUT",
+    "sortNum": 60000,
+    "created": "2023-04-09T14:37:40.660Z",
+    "modified": "2023-04-21T12:37:03.975Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Cat 1-1\",\n  \"user_id\": \"{{user_id}}\",\n  \"description\":\"test 1.1\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "ce9fb0f6-a771-41f3-b3ad-8f1c98112239",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Delete Cat",
+    "url": "{{host}}/admin/products/category/1",
+    "method": "DELETE",
+    "sortNum": 70000,
+    "created": "2023-04-09T15:04:05.902Z",
+    "modified": "2023-04-21T12:37:57.485Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "988378fa-78da-4d97-8fca-d11c048591a7",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Create Product",
+    "url": "{{host}}/admin/products",
+    "method": "POST",
+    "sortNum": 15000,
+    "created": "2023-04-09T15:05:53.349Z",
+    "modified": "2023-04-29T11:46:50.878Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "test"
+        },
+        {
+          "name": "sku",
+          "value": "ok"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": ""
+        }
+      ]
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "98f0f3a8-8ee5-484f-8bf4-76d469016add",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Show Product",
+    "url": "{{host}}/admin/products/1",
+    "method": "GET",
+    "sortNum": 17500,
+    "created": "2023-04-09T16:00:10.776Z",
+    "modified": "2023-04-21T12:20:54.359Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "b14e5e83-845e-40e5-a73a-4716b8a81438",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Update Product",
+    "url": "{{host}}/admin/products/",
+    "method": "POST",
+    "sortNum": 16250,
+    "created": "2023-04-09T16:25:43.120Z",
+    "modified": "2023-04-29T12:21:41.432Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "test"
+        },
+        {
+          "name": "sku",
+          "value": "ok"
+        },
+        {
+          "name": "id",
+          "value": "1"
+        }
+      ],
+      "files": [
+        {
+          "name": "image",
+          "value": ""
+        }
+      ]
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "d33041cd-8238-43a8-bfe8-f3cb42796a28",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Delete Product",
+    "url": "{{host}}/admin/products/1",
+    "method": "DELETE",
+    "sortNum": 18750,
+    "created": "2023-04-09T17:02:40.945Z",
+    "modified": "2023-04-21T12:21:27.056Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "f12da1b8-87df-4ecd-b78a-a4e5449b8569",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "get permissions",
+    "url": "{{host}}/permissions",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-04-09T17:20:01.504Z",
+    "modified": "2023-04-09T17:20:33.409Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "a916521c-4c08-469f-813f-4b9fe89f1a3b",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Update user",
+    "url": "{{host}}/auth/",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-04-09T17:32:25.879Z",
+    "modified": "2023-04-09T18:05:02.471Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"full_name\": \"Test\",\n    \"email\": \"test@gmail.com\",\n    \"mobile\": \"1234993202\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "c594ffd3-b43c-4804-a0b6-fbe3cbe81983",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "get Config",
+    "url": "{{host}}/config",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2023-04-09T17:52:56.789Z",
+    "modified": "2023-04-09T17:53:10.772Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9a9eaf8b-e623-4972-b04c-79f7fb78b4ba",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "781758b3-bbb7-4111-b894-e33b7069603d",
+    "name": "get Config",
+    "url": "{{host}}/admin/config",
+    "method": "GET",
+    "sortNum": 160000,
+    "created": "2023-04-09T17:55:49.908Z",
+    "modified": "2023-04-09T17:57:11.162Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "502cc174-6f85-4c62-8343-f4435c742f7a",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b0e522be-43e8-40ca-b562-7f59d2bc1182",
+    "name": "get List",
+    "url": "{{host}}/admin/users",
+    "method": "GET",
+    "sortNum": 170000,
+    "created": "2023-04-09T17:58:30.754Z",
+    "modified": "2023-04-09T18:00:30.067Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "ede18552-71ad-4315-88ff-ff90c02bea12",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Email check",
+    "url": "{{host}}/email/check",
+    "method": "POST",
+    "sortNum": 180000,
+    "created": "2023-04-09T18:08:01.072Z",
+    "modified": "2023-04-09T18:12:30.237Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\" : \"test@gmail.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6b3dfd22-a118-4319-9ac5-2e09a2ba3c09",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Forgot password",
+    "url": "{{host}}/forgot-password",
+    "method": "POST",
+    "sortNum": 190000,
+    "created": "2023-04-09T18:11:30.295Z",
+    "modified": "2023-04-09T18:12:33.546Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\" : \"test@gmail.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3ef9b3d0-6786-4176-9a4d-8a402c7fec7c",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b0e522be-43e8-40ca-b562-7f59d2bc1182",
+    "name": "create user",
+    "url": "{{host}}/admin/users",
+    "method": "POST",
+    "sortNum": 200000,
+    "created": "2023-04-10T10:29:39.504Z",
+    "modified": "2023-04-26T17:17:22.938Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\" : \"test@gmail.com\",\n    \"password\": \"123456789\",\n    \"full_name\": \"Test\",\n    \"mobile\": \"0287555897\",\n    \"status\": 1,\n    \"role\": 3,\n    \"country_id\": 1\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "f4a1bb34-f806-4cca-9c89-388f6dfba784",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b0e522be-43e8-40ca-b562-7f59d2bc1182",
+    "name": "get Detail User",
+    "url": "{{host}}/admin/users/1",
+    "method": "GET",
+    "sortNum": 210000,
+    "created": "2023-04-10T10:41:52.527Z",
+    "modified": "2023-04-21T16:27:12.124Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "eb9b5612-4cea-4661-8eec-ecbf4cfddd99",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b0e522be-43e8-40ca-b562-7f59d2bc1182",
+    "name": "update user",
+    "url": "{{host}}/admin/users/2",
+    "method": "PUT",
+    "sortNum": 220000,
+    "created": "2023-04-10T14:11:09.124Z",
+    "modified": "2023-04-10T14:14:37.796Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"full_name\": \"Test\",\n    \"role\": 2\n\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "98e16959-947a-48a5-8596-4ead30c35826",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "343e29b4-43b1-40aa-b2c5-6fae0c5e6a93",
+    "name": "get List",
+    "url": "{{host}}/admin/roles",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-10T14:24:32.526Z",
+    "modified": "2023-04-10T14:25:22.661Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "9e9eb67a-64a9-44ca-85f5-8cc45f7f706e",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "343e29b4-43b1-40aa-b2c5-6fae0c5e6a93",
+    "name": "create Role",
+    "url": "{{host}}/admin/roles",
+    "method": "POST",
+    "sortNum": 220000,
+    "created": "2023-04-10T14:26:01.290Z",
+    "modified": "2023-04-10T14:29:48.581Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Intern\",\n  \"type\": \"1\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "359bba94-b413-4f92-8d43-b5606d60f2b5",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "343e29b4-43b1-40aa-b2c5-6fae0c5e6a93",
+    "name": "get detail role",
+    "url": "{{host}}/admin/roles/4",
+    "method": "GET",
+    "sortNum": 230000,
+    "created": "2023-04-10T14:34:15.980Z",
+    "modified": "2023-04-22T14:53:17.746Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "23178e93-822d-45ad-9333-2fbee469b88c",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "343e29b4-43b1-40aa-b2c5-6fae0c5e6a93",
+    "name": "update role",
+    "url": "{{host}}/admin/roles/5",
+    "method": "PUT",
+    "sortNum": 240000,
+    "created": "2023-04-10T14:35:38.748Z",
+    "modified": "2023-04-10T14:36:15.306Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Interns\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "2b78b719-3b4f-4f11-b044-53e83183255e",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "343e29b4-43b1-40aa-b2c5-6fae0c5e6a93",
+    "name": "delete role",
+    "url": "{{host}}/admin/roles/5",
+    "method": "DELETE",
+    "sortNum": 250000,
+    "created": "2023-04-10T14:46:11.173Z",
+    "modified": "2023-04-10T14:46:37.388Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "8dc68e52-238c-489a-9775-dbe3f9671398",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b5087ee6-0b41-4f77-966e-057690b8f64c",
+    "name": "get List",
+    "url": "{{host}}/admin/currencies",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-10T14:53:27.808Z",
+    "modified": "2023-04-10T14:53:58.131Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "217d3e61-1071-48e5-aab8-c4bf09d5b495",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b5087ee6-0b41-4f77-966e-057690b8f64c",
+    "name": "debug",
+    "url": "{{host}}/debug/log",
+    "method": "GET",
+    "sortNum": 230000,
+    "created": "2023-04-10T15:29:54.865Z",
+    "modified": "2023-04-10T15:30:54.829Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b085e33d-c58c-4009-b781-277c6ff1a72b",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "New Item",
+    "url": "{{host}}/admin/products/product-item",
+    "method": "POST",
+    "sortNum": 95000,
+    "created": "2023-04-11T14:27:17.256Z",
+    "modified": "2023-04-21T12:38:32.352Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"product_id\": 3,\n  \"name\":\"Nguyen Hai Loi\",\n  \"email\": \"Test@gmail.com\",\n  \"description\":\"test add product item\",\n  \"sku\": \"zxc-vkc\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "7ea78285-ca1f-43b1-b00c-9901f872dfc2",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Get Item",
+    "url": "{{host}}/admin/products/product-item",
+    "method": "GET",
+    "sortNum": 107500,
+    "created": "2023-04-11T15:23:13.218Z",
+    "modified": "2023-04-21T12:38:41.757Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "0aa1762f-683a-4060-80ec-6a17476b20da",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Update Item",
+    "url": "{{host}}/admin/products/productitem/45",
+    "method": "PUT",
+    "sortNum": 113750,
+    "created": "2023-04-11T16:01:09.525Z",
+    "modified": "2023-04-21T13:15:51.834Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"product_id\": 3,\n  \"status\": 1,\n  \"name\":\"John Wick\",\n  \"email\": \"Test@gmail.com\",\n  \"description\":\"test add product item\",\n  \"sku\": \"zxc-vkc\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "3e3f0830-eab8-428f-982d-8734a32adb78",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Delete Item",
+    "url": "{{host}}/admin/products/productitem/40",
+    "method": "DELETE",
+    "sortNum": 116875,
+    "created": "2023-04-11T16:19:13.844Z",
+    "modified": "2023-04-21T13:16:11.856Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "7feeb319-9b6f-4f3a-8f67-40c03247c120",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f450f970-5b4e-4d1e-a576-8a2e45220a8e",
+    "name": "Import Item",
+    "url": "{{host}}/admin/products/import/productitem",
+    "method": "POST",
+    "sortNum": 118437.5,
+    "created": "2023-04-11T16:43:38.838Z",
+    "modified": "2023-04-21T13:16:42.826Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "fileItem",
+          "value": "..\\..\\..\\..\\..\\..\\Hoc tren mang\\PHP\\data excel\\test.csv"
+        }
+      ]
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "32978e05-dfaf-47d6-bde1-dee7dc44ebe7",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "692ee9a5-e6f7-4f31-a897-14ca19e46241",
+    "name": "Update Email Template",
+    "url": "{{host}}/admin/emailtemplates/8",
+    "method": "PUT",
+    "sortNum": 10000,
+    "created": "2023-04-11T17:37:48.516Z",
+    "modified": "2023-04-21T14:43:18.647Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Test template email\",\n  \"subject\":\"Mail dành cho khách hàng\",\n  \"json_content\":\"template-email-7\",\n  \"html_content\":\"{{email}} - {{phone}} - {{product_items}}\",\n  \"type\": \"order-purchase-students\",\n  \"status\":1\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "70c04d21-24e8-4c1d-b207-1674bdd6f514",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "692ee9a5-e6f7-4f31-a897-14ca19e46241",
+    "name": "Get List",
+    "url": "{{host}}/admin/emailtemplates",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-11T17:48:14.433Z",
+    "modified": "2023-04-21T14:41:27.040Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "963c05ba-20bf-4227-a1f5-b3654fa99f04",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "692ee9a5-e6f7-4f31-a897-14ca19e46241",
+    "name": "Get Detail",
+    "url": "{{host}}/admin/emailtemplates/3",
+    "method": "GET",
+    "sortNum": 11250,
+    "created": "2023-04-11T17:49:12.238Z",
+    "modified": "2023-04-21T14:39:41.042Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "25caa35a-1c29-4727-b995-45f3790e8831",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "692ee9a5-e6f7-4f31-a897-14ca19e46241",
+    "name": "Delete Email Template",
+    "url": "{{host}}/admin/emailtemplates/2",
+    "method": "DELETE",
+    "sortNum": 40000,
+    "created": "2023-04-11T17:50:46.948Z",
+    "modified": "2023-04-21T14:41:44.911Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "3ec550f4-a749-462d-b84d-6695b8b218f9",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "781758b3-bbb7-4111-b894-e33b7069603d",
+    "name": "update Config",
+    "url": "{{host}}/admin/config",
+    "method": "POST",
+    "sortNum": 170000,
+    "created": "2023-04-12T11:47:07.994Z",
+    "modified": "2023-04-22T09:33:46.049Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"admin_bank\",\n  \"value\": {\n    \"bank_number\": \"1021005659\",\n    \"bank_name\": \"Vietcombank\",\n    \"bank_address\": \"Chi nhánh Hoàn Kiếm\",\n    \"bank_user_name\": \"Test\"\n  }\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "75808f0d-bfb0-45c6-85cb-a736a632ba6c",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "692ee9a5-e6f7-4f31-a897-14ca19e46241",
+    "name": "Create Email Template",
+    "url": "{{host}}/admin/email-templates",
+    "method": "POST",
+    "sortNum": 12500,
+    "created": "2023-04-12T17:18:58.334Z",
+    "modified": "2023-04-21T14:37:56.534Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Test template email\",\n  \"subject\":\"https://vcdn1-dulich.vnecdn.net/2021/07/16/3-1-1626444927.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=0nww5sftrDimoUxyn9lM5g\",\n  \"json_content\":\"template-email-8\",\n  \"html_content\":\"<h1>Sản phẩm để test 8</h1>\",\n  \"type\":\"order-purchase-student\",\n  \"status\":1\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "1ed71c9d-6076-4793-b9be-ee22739f6643",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "290dc434-6a16-44d2-963f-73b3271acb9f",
+    "name": "get Qrcode",
+    "url": "{{host}}/admin/payment/qrcode",
+    "method": "POST",
+    "sortNum": 260000,
+    "created": "2023-04-13T15:29:34.787Z",
+    "modified": "2023-04-21T13:20:59.056Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"amount\": 10000\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "ef37348d-de55-45d4-ad4a-9071fed689bb",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "290dc434-6a16-44d2-963f-73b3271acb9f",
+    "name": "Approved Status",
+    "url": "{{host}}/admin/payment/purchaseapprove/63",
+    "method": "POST",
+    "sortNum": 262500,
+    "created": "2023-04-16T13:55:20.971Z",
+    "modified": "2023-04-21T14:33:13.191Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "46f4f627-c572-4983-9d36-56b642ee96c6",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "290dc434-6a16-44d2-963f-73b3271acb9f",
+    "name": "Cancel Status",
+    "url": "{{host}}/admin/payment/purchasecancel/4",
+    "method": "POST",
+    "sortNum": 263750,
+    "created": "2023-04-16T14:16:07.543Z",
+    "modified": "2023-04-21T14:34:11.725Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "93d44ea8-74fd-47a6-9037-40d1750ea863",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "aa5309c2-6e45-45a0-bb0d-4b182a2795c1",
+    "name": "List Order",
+    "url": "{{host}}/admin/order",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T11:45:58.432Z",
+    "modified": "2023-04-21T14:23:48.337Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "5a89ad14-8282-4f30-9839-ec7ee634cfa4",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "aa5309c2-6e45-45a0-bb0d-4b182a2795c1",
+    "name": "Create Order",
+    "url": "{{host}}/admin/order",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-17T11:57:47.737Z",
+    "modified": "2023-04-21T16:53:23.819Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"user_id\": 1,\n  \"email\": \"test@gmail.com\",\n  \"phone\":\"0961555152\",\n  \"product_id\" : 3,\n  \"count_product\": 10\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "28fb8f66-973c-4fdd-81c1-f6c881225b0b",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "aa5309c2-6e45-45a0-bb0d-4b182a2795c1",
+    "name": "Update Order",
+    "url": "{{host}}/admin/order/15",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2023-04-17T15:01:45.894Z",
+    "modified": "2023-04-21T14:26:48.125Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"test@gmail.com\",\n  \"phone\":\"123456789\",\n  \"total\": 20000,\n  \"discount\": 0,\n  \"payment_status\": 2\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "81cc6e09-f2eb-4235-9076-5d9f951b04eb",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "aa5309c2-6e45-45a0-bb0d-4b182a2795c1",
+    "name": "Show Order",
+    "url": "{{host}}/admin/order/18",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-17T15:11:28.674Z",
+    "modified": "2023-04-21T14:27:09.645Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "c6589f13-0587-4150-b83d-2bfe2a9c733e",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "aa5309c2-6e45-45a0-bb0d-4b182a2795c1",
+    "name": "Delete Order",
+    "url": "{{host}}/admin/order/17",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-04-17T15:19:46.133Z",
+    "modified": "2023-04-21T14:22:42.887Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "7a0d224c-827d-402b-ac85-0200d7a0b004",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "290dc434-6a16-44d2-963f-73b3271acb9f",
+    "name": "Purchase",
+    "url": "{{host}}/admin/payment/purchase",
+    "method": "POST",
+    "sortNum": 275000,
+    "created": "2023-04-19T11:48:38.285Z",
+    "modified": "2023-04-21T13:26:11.072Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"amount\": 10000,\n  \"tx_id\": 104822487,\n  \"user_id\": 2\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "584f60d4-48de-4bad-9f8b-230ff188dcf8",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "40361939-471b-4140-bacb-b49cf15d5a6a",
+    "name": "get list Order",
+    "url": "{{host}}/order",
+    "method": "GET",
+    "sortNum": 285000,
+    "created": "2023-04-21T17:27:43.254Z",
+    "modified": "2023-04-21T17:28:08.702Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "b55a8782-975f-4690-9542-ed6e9baee7c7",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "40361939-471b-4140-bacb-b49cf15d5a6a",
+    "name": "get Detail Order",
+    "url": "{{host}}/order/87",
+    "method": "GET",
+    "sortNum": 295000,
+    "created": "2023-04-21T17:39:20.226Z",
+    "modified": "2023-04-21T17:42:52.116Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "7b4ed546-aea1-4480-9659-17a28a651ca2",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "8e3d9d12-3762-4b7f-b23c-3f192baef909",
+    "name": "get list transactions",
+    "url": "{{host}}/transaction?is_paginate=1",
+    "method": "GET",
+    "sortNum": 285000,
+    "created": "2023-04-21T17:51:10.820Z",
+    "modified": "2023-04-23T10:03:44.591Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "is_paginate",
+        "value": "1",
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "d2dc902a-d483-4711-a6fa-df0fef255828",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "8e3d9d12-3762-4b7f-b23c-3f192baef909",
+    "name": "get Detail Transaction",
+    "url": "{{host}}/transaction/6",
+    "method": "GET",
+    "sortNum": 295000,
+    "created": "2023-04-21T17:51:10.821Z",
+    "modified": "2023-04-21T17:58:26.339Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "aa868178-e444-483a-b299-4132836e88bf",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "8e3d9d12-3762-4b7f-b23c-3f192baef909",
+    "name": "get Transaction latest  ",
+    "url": "{{host}}/transaction/latest",
+    "method": "POST",
+    "sortNum": 305000,
+    "created": "2023-04-21T18:07:16.481Z",
+    "modified": "2023-04-23T12:12:54.455Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"is_buy\": 1,\n  \"is_purchase\": 0\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "efea8ec1-0981-46b9-be75-97170ed507e6",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "7f1b1341-d994-4cee-b7a8-87474eb537cf",
+    "name": "Login User",
+    "url": "{{host}}/login",
+    "method": "POST",
+    "sortNum": 35000,
+    "created": "2023-04-22T12:36:15.827Z",
+    "modified": "2023-04-27T09:19:41.144Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"{{email}}\",\n  \"password\":\"{{password}}\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.access_token",
+        "action": "setto",
+        "value": "token"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.user.id",
+        "action": "setto",
+        "value": "user_id"
+      }
+    ]
+  },
+  {
+    "_id": "406ac98d-f8d3-4a36-8d50-472be0bd56f4",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "1a2d9bb4-be3e-4f0a-a5e9-4b53a18ba106",
+    "name": "Check Live UID Facebook",
+    "url": "{{host}}/tool/check-live-uid",
+    "method": "POST",
+    "sortNum": 335000,
+    "created": "2023-04-22T15:04:10.608Z",
+    "modified": "2023-04-23T16:30:56.712Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"uid\":[\"100001860932365\", \"100002738633901\", \"100002738633903\", \"6180470752037218\", \"100003823238894\", \"413127817601667\"]\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "07411cf1-f2d1-4924-a6a3-c13590fc9638",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "329cd001-6813-42cc-99e7-e82af6e9e62d",
+    "name": "List Article",
+    "url": "{{host}}/admin/article",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-23T06:53:07.504Z",
+    "modified": "2023-04-25T16:58:11.221Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "is_paginate",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "8e1df7cf-f89f-42f2-a821-17dca2aa83b5",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "329cd001-6813-42cc-99e7-e82af6e9e62d",
+    "name": "Create Article",
+    "url": "{{host}}/admin/article",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-23T06:53:07.505Z",
+    "modified": "2023-04-25T15:50:05.355Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "title",
+          "value": "Tuyển sinh du học Ba Lan "
+        },
+        {
+          "name": "description",
+          "value": "Hơn 20 năm trong công tác tuyển sinh du học, bằng nhiều hình thức khác nhau đã giúp đỡ CEPECE trở thành một đơn vị uy tín trong việc tuyển sinh. Nhằm tăng cường sự hợp tác giáo dục giữa Việt Nam và Ban Lan, chúng tôi cung cấp một số chương trình đại học và sau đại học phù hợp với tài chính và nguyện vọng của sinh viên Việt Nam gồm 2 trường: Đại học Tin học và Quản lý hành chính Vác-sa-va, trường đại học kinh tế Almamer Vác-sa-va."
+        },
+        {
+          "name": "excerpt",
+          "value": "Trung tâm Hợp tác Chuyên gia và Kỹ thuật với nước ngoài, đơn vị duy nhất trực thuộc Cục Đào tạo với nước ngoài - Bộ Giáo dục và Đào tạo được phép tuyển sinh du học các nước bằng các chương trình tự túc."
+        }
+      ],
+      "files": [
+        {
+          "name": "image_feature",
+          "value": ""
+        }
+      ]
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "2abec335-7cb4-4897-bd7e-48c8ebb33bbb",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "329cd001-6813-42cc-99e7-e82af6e9e62d",
+    "name": "Update Article",
+    "url": "{{host}}/admin/article/1",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2023-04-23T06:53:07.506Z",
+    "modified": "2023-04-23T07:35:50.669Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Tuyển sinh du học Ba Lan Hoang Tu\",\n  \"description\": \"Hơn 30 năm trong công tác tuyển sinh du học, bằng nhiều hình thức khác nhau đã giúp đỡ CEPECE trở thành một đơn vị uy tín trong việc tuyển sinh. Nhằm tăng cường sự hợp tác giáo dục giữa Việt Nam và Ban Lan, chúng tôi cung cấp một số chương trình đại học và sau đại học phù hợp với tài chính và nguyện vọng của sinh viên Việt Nam gồm 2 trường: Đại học Tin học và Quản lý hành chính Vác-sa-va, trường đại học kinh tế Almamer Vác-sa-va.\",\n  \"excerpt\":\"Trung tâm Hợp tác Chuyên gia và Kỹ thuật với nước ngoài, đơn vị duy nhất trực thuộc Cục Đào tạo với nước ngoài - Bộ Giáo dục và Đào tạo được phép tuyển sinh du học các nước bằng các chương trình tự túc.\",\n  \"image_feature\" : \"https://icdn.dantri.com.vn/Uploaded/2011/04/08/tb3.jpg\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "4dcbc025-3b6a-424e-baab-4340b2180cad",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "329cd001-6813-42cc-99e7-e82af6e9e62d",
+    "name": "Show Article",
+    "url": "{{host}}/admin/article/2",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-23T06:53:07.507Z",
+    "modified": "2023-04-23T08:02:40.669Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "99e997cd-89ec-40a7-9f06-facad1bc0140",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "329cd001-6813-42cc-99e7-e82af6e9e62d",
+    "name": "Delete Article",
+    "url": "{{host}}/admin/article/2",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-04-23T06:53:07.508Z",
+    "modified": "2023-04-24T10:16:36.411Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "0b9fbbba-965c-456b-992e-7d03fac28f55",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "290dc434-6a16-44d2-963f-73b3271acb9f",
+    "name": "Summary total",
+    "url": "{{host}}/admin/payment/summary/total",
+    "method": "GET",
+    "sortNum": 295000,
+    "created": "2023-04-26T12:19:45.740Z",
+    "modified": "2023-04-26T17:14:44.787Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "6874e5d6-479e-4b58-887b-a57434d156e3",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "290dc434-6a16-44d2-963f-73b3271acb9f",
+    "name": "Summary today",
+    "url": "{{host}}/admin/payment/summary/today",
+    "method": "GET",
+    "sortNum": 285000,
+    "created": "2023-04-26T16:53:49.478Z",
+    "modified": "2023-04-26T17:14:43.243Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "cb442b21-1ce8-4112-a67e-386546083f24",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b0e522be-43e8-40ca-b562-7f59d2bc1182",
+    "name": "get List Copy",
+    "url": "{{host}}/admin/users",
+    "method": "GET",
+    "sortNum": 185000,
+    "created": "2023-04-26T17:19:13.337Z",
+    "modified": "2023-04-26T17:19:13.337Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "2fc4b482-9109-4e34-87be-55cc45f9e83a",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "b0e522be-43e8-40ca-b562-7f59d2bc1182",
+    "name": "get summary traffic user",
+    "url": "{{host}}/admin/users/summary/traffic_user",
+    "method": "GET",
+    "sortNum": 185000,
+    "created": "2023-04-26T17:19:19.276Z",
+    "modified": "2023-04-26T17:20:13.440Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "4b266a91-77d8-4aaa-a2d2-adf5864f3374",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f83ab3f5-9b95-4d1d-90e2-a0d3b573aebb",
+    "name": "List Permission",
+    "url": "{{host}}/admin/permissions",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-26T18:31:15.976Z",
+    "modified": "2023-04-26T18:34:13.948Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "f78d1290-3a18-49e5-95c0-523b73a785f4",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f83ab3f5-9b95-4d1d-90e2-a0d3b573aebb",
+    "name": "Create Permission",
+    "url": "{{host}}/admin/permissions",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-26T18:31:33.536Z",
+    "modified": "2023-04-26T18:33:53.177Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Test phân quyền 2\",\n  \"resource\":\"Test phân quyền 2\",\n  \"action\":\"Xem danh sách\",\n  \"owner\": \"Dành cho admin\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "29dbf55b-0303-4351-9bdc-a2bff23b2adc",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f83ab3f5-9b95-4d1d-90e2-a0d3b573aebb",
+    "name": "Update Permission",
+    "url": "{{host}}/admin/permissions/2",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2023-04-26T18:35:44.926Z",
+    "modified": "2023-04-26T18:45:02.703Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Test phân quyền 2 đã fix\",\n  \"resource\":\"Test phân quyền 2\",\n  \"action\":\"Xem danh sách\",\n  \"owner\": \"Dành cho admin\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "19cb9bff-49c4-4ea9-b5a4-e01593a39a17",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f83ab3f5-9b95-4d1d-90e2-a0d3b573aebb",
+    "name": "Show Permission",
+    "url": "{{host}}/admin/permissions/1",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2023-04-26T18:45:48.411Z",
+    "modified": "2023-04-26T18:46:20.669Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "27ad03d0-5161-4b9c-b872-45703b3bfe76",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "f83ab3f5-9b95-4d1d-90e2-a0d3b573aebb",
+    "name": "Delete Permission",
+    "url": "{{host}}/admin/permissions/1",
+    "method": "DELETE",
+    "sortNum": 40000,
+    "created": "2023-04-26T18:46:27.413Z",
+    "modified": "2023-04-26T18:47:55.767Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "cced6dc0-990c-45bc-aae0-f10221100752",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "0a303bf4-7e7e-4527-b884-c9f6bb770123",
+    "name": "Get List",
+    "url": "{{host}}/admin/payment",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-27T09:17:02.103Z",
+    "modified": "2023-04-27T09:20:07.084Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "3df44898-513d-4ec8-872e-1b798ca64627",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "0a303bf4-7e7e-4527-b884-c9f6bb770123",
+    "name": "Create payment",
+    "url": "{{host}}/admin/payment",
+    "method": "POST",
+    "sortNum": 5000,
+    "created": "2023-04-27T09:20:51.974Z",
+    "modified": "2023-04-27T09:24:25.657Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"tx_id\" : \"test1\",\n    \"order_id\": 0,\n    \"total\": 10000,\n    \"user_id\": 1,\n    \"status\": 1,\n    \"data\":\"User tuan*** nap tien vao tai khoan 200000\",\n    \"country_id\": 1\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "b2f82367-c7bb-4c3f-8190-3919e56c7333",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "0a303bf4-7e7e-4527-b884-c9f6bb770123",
+    "name": "get detail id",
+    "url": "{{host}}/admin/payment/1",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-27T09:25:31.351Z",
+    "modified": "2023-04-27T09:25:51.902Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "66f2203f-5e57-47e7-b00b-fe5dd5ff4a04",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "0a303bf4-7e7e-4527-b884-c9f6bb770123",
+    "name": "Update payment",
+    "url": "{{host}}/admin/payment/1",
+    "method": "PUT",
+    "sortNum": 7500,
+    "created": "2023-04-27T11:09:57.063Z",
+    "modified": "2023-04-27T11:10:40.807Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"tx_id\" : \"test1\",\n    \"order_id\": 0,\n    \"total\": 10000,\n    \"user_id\": 1,\n    \"status\": 1,\n    \"data\":\"User tuan*** nap tien vao tai khoan 200000\",\n    \"country_id\": 1\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "a103ea4c-f717-48d3-956a-3d51d32d162a",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "9e2a5a9d-4549-454d-bd0d-68ded1f82b2b",
+    "name": "Create",
+    "url": "{{host}}/admin/setting",
+    "method": "POST",
+    "sortNum": 5000,
+    "created": "2023-04-27T11:11:38.919Z",
+    "modified": "2023-04-27T11:28:07.934Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\" : \"admin_bank1\",\n    \"value\": \"{\\\"bank_number\\\":\\\"123456789\\\",\\\"bank_name\\\":\\\"vietcombank\\\",\\\"bank_address\\\":\\\"Vo Chi Cong\\\",\\\"bank_user_name\\\":\\\"Test\\\"}\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "5e2427c7-910e-47bf-af87-3f010e3a88c8",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "9e2a5a9d-4549-454d-bd0d-68ded1f82b2b",
+    "name": "Update",
+    "url": "{{host}}/admin/setting/2",
+    "method": "PUT",
+    "sortNum": 7500,
+    "created": "2023-04-27T11:11:38.920Z",
+    "modified": "2023-04-27T11:25:53.878Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\" : \"test\",\n    \"value\": \"dfdf\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "6edd8ab2-46c9-4d3d-9616-dcaa4626b4ec",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "9e2a5a9d-4549-454d-bd0d-68ded1f82b2b",
+    "name": "Get List",
+    "url": "{{host}}/admin/setting",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-27T11:11:38.921Z",
+    "modified": "2023-04-27T11:24:00.468Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "016791bc-348d-494d-8328-9c78af6c6da8",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "9e2a5a9d-4549-454d-bd0d-68ded1f82b2b",
+    "name": "get detail id",
+    "url": "{{host}}/admin/setting/1",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-27T11:11:38.922Z",
+    "modified": "2023-04-27T11:28:54.005Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "34ed3ff7-4802-4aec-a763-d5c19ddaf731",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "0a303bf4-7e7e-4527-b884-c9f6bb770123",
+    "name": "Approve payment",
+    "url": "{{host}}/admin/payment/purchaseapprove/2",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-05-05T05:28:22.247Z",
+    "modified": "2023-05-05T07:11:07.766Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "617d2bbd-60a3-45fd-84cb-ba622308e7a8",
+    "colId": "e52e7e48-39eb-405f-be9f-c3d0668ac7a9",
+    "containerId": "0a303bf4-7e7e-4527-b884-c9f6bb770123",
+    "name": "Cancel payment",
+    "url": "{{host}}/admin/payment/purchasecancel/2",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-05-05T07:10:38.924Z",
+    "modified": "2023-05-05T07:10:38.924Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "authorization_code",
+        "tokenUrl": "",
+        "clientId": "",
+        "clientSecret": "",
+        "clientAuth": "in-header"
+      }
+    },
+    "tests": []
+  }
+]
